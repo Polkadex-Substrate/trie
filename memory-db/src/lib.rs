@@ -384,6 +384,10 @@ impl<H, KF, T> MemoryDB<H, KF, T>
         }
     }
 
+    pub fn data(&self) -> &Map<KF::Key,(T,i32)>{
+        self.data.borrow()
+    }
+
     /// Loads the memory db from the underlying Hashmap
     pub fn load_from(&mut self, data: Map<KF::Key, (T, i32)>) {
         let mut temp = MemoryDB::default();
